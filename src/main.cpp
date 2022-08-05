@@ -1,5 +1,6 @@
 #include "main.h"
 #include "pros/misc.h"
+#include "pros/motors.h"
 #include "pros/motors.hpp"
 using namespace pros;
 
@@ -78,10 +79,10 @@ void autonomous() {}
  */
 void opcontrol() {
 	pros::Controller controller(pros::E_CONTROLLER_MASTER);
-	pros::Motor left1(1);
-	pros::Motor right1(2);
-	pros::Motor left2(3);
-	pros::Motor right2(4);
+	pros::Motor left1(1,E_MOTOR_GEARSET_36);
+	pros::Motor right1(2,E_MOTOR_GEARSET_36);
+	pros::Motor left2(3,E_MOTOR_GEARSET_36);
+	pros::Motor right2(4,E_MOTOR_GEARSET_36);
 
 
 	
