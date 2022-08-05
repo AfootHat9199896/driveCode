@@ -1,4 +1,7 @@
 #include "main.h"
+#include "pros/misc.h"
+#include "pros/motors.hpp"
+using namespace pros;
 
 /**
  * A callback function for LLEMU's center button.
@@ -74,19 +77,22 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	pros::Motor left_mtr(1);
-	pros::Motor right_mtr(2);
+	pros::Controller controller(pros::E_CONTROLLER_MASTER);
+	pros::Motor left1(1);
+	pros::Motor right1(2);
+	pros::Motor left2(3);
+	pros::Motor right2(4);
+
+
+	
 
 	while (true) {
-		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
-		                 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
-		                 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
-		int left = master.get_analog(ANALOG_LEFT_Y);
-		int right = master.get_analog(ANALOG_RIGHT_Y);
+		left1.move(controller.get_analog(ANALOG_LEFT_Y));
+		left2.move(controller.get_analog(ANALOG_LEFT_Y));
+		right1.move(controller.get_analog(ANALOG_RIGHT_Y));
+		right2.move(controller.get_analog(ANALOG_RIGHT_Y));
 
-		left_mtr = left;
-		right_mtr = right;
-		pros::delay(20);
+		pros::delay(20); 
+		
 	}
 }
