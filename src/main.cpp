@@ -1,7 +1,12 @@
 #include "main.h"
+#include "display/lv_misc/lv_symbol_def.h"
+#include "pros/colors.h"
+#include "pros/llemu.hpp"
 #include "pros/misc.h"
+#include "pros/misc.hpp"
 #include "pros/motors.h"
 #include "pros/motors.hpp"
+#include <iterator>
 /**
  * A callback function for LLEMU's center button.
  *
@@ -26,8 +31,8 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
-
+	pros::lcd::set_text(1, ":D");
+	//pros::lcd::set_background_color(COLOR_SLATE_GRAY);
 	pros::lcd::register_btn1_cb(on_center_button);
 }
 
