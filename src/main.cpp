@@ -36,7 +36,8 @@ void initialize() {
 	pros::lcd::set_text(1, ":D");
 	//pros::lcd::set_background_color(COLOR_SLATE_GRAY);
 	pros::lcd::register_btn1_cb(on_center_button);
-	Task printDataTask(printData);
+	//Task printDataTask(printData);
+	Task testWheelsTask(testWheels);
 }
 
 /**

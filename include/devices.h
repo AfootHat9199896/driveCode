@@ -13,4 +13,6 @@ inline pros::Motor right2(11,E_MOTOR_GEARSET_36);
 inline pros::Motor left3(9,E_MOTOR_GEARSET_36,true);
 inline pros::Motor right3(7,E_MOTOR_GEARSET_36);
 
-inline pros::ADIEncoder encoder (1,2);
+inline pros::ADIEncoder encoderLeft (1,2);
+inline pros::ADIEncoder encoderRight (3,4);
+
